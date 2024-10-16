@@ -1,0 +1,56 @@
+version: '3'
+services:
+  # Simulación del PLC Siemens S7-1200 con S7Comm
+  plc_s7_1200:
+    image: honeynet/conpot:latest
+    container_name: plc_s7_1200
+    ports:
+      - "8800:8800"
+      - "10201:102"
+    volumes:
+      - ./templates:/home/conpot/templates
+    command: /home/conpot/.local/bin/conpot -f --template default/s7comm
+
+  # Simulación de un PLC con Modbus/TCP
+  plc_modbus:
+    image: honeynet/conpot:latest
+    container_name: plc_modbus
+    ports:
+      - "8801:8800"
+      - "5021:502"
+    volumes:
+      - ./templates:/home/conpot/templates
+    command: /home/conpot/.local/bin/conpot -f --template default/modbus
+
+  # Simulación de una RTU utilizando el protocolo IEC 104
+  rtu_iec104:
+    image: honeynet/conpot:latest
+    container_name: rtu_iec104
+    ports:
+      - "8802:8800"
+      - "2404:2404" # Puerto estándar IEC 104
+    volumes:
+      - ./templates:/home/conpot/templates
+    command: /home/conpot/.local/bin/conpot -f --template IEC104
+
+  # Simulación del sistema SCADA con HTTP y SNMP
+  scada_system:
+    image: honeynet/conpot:latest
+    container_name: scada_system
+    ports:
+      - "8803:8800"
+      - "1613:161/udp" # Puerto SNMP
+    volumes:
+      - ./templates:/home/conpot/templates
+    command: /home/conpot/.local/bin/conpot -f --template scada
+
+  # Simulación de un Gateway IoT utilizando MQTT
+  iot_gateway:
+    image: honeynet/conpot:latest
+    container_name: iot_gateway
+    ports:
+      - "8804:8800"
+      - "1883:1883" # Puerto estándar MQTT
+    volumes:
+      - ./templates:/home/conpot/templates
+    command: /home/conpot/.local/bin/conpot -f --template mqtt_gateway
