@@ -1,0 +1,45 @@
+<core>
+    <template>
+        <!-- General information about the template -->
+        <entity name="unit">IoT Gateway</entity>
+        <entity name="vendor">Generic Vendor</entity>
+        <entity name="description">IoT Gateway with MQTT protocol</entity>
+        <entity name="protocols">MQTT</entity>
+        <entity name="creator">by haizea </entity>
+    </template>
+    <databus>
+        <!-- Core value that can be retrieved from the databus by key -->
+        <key_value_mappings>
+            <key name="FacilityName">
+                <value type="value">"IoT Sensor Facility"</value>
+            </key>
+            <key name="SystemName">
+                <value type="value">"MQTT Gateway"</value>
+            </key>
+            <key name="SystemDescription">
+                <value type="value">"IoT Gateway with MQTT"</value>
+            </key>
+            <key name="Uptime">
+                <value type="function">conpot.emulators.misc.uptime.Uptime</value>
+            </key>
+            <key name="sysObjectID">
+                <value type="value">"0.0"</value>
+            </key>
+            <key name="sysContact">
+                <value type="value">"IoT Manager"</value>
+            </key>
+            <key name="sysName">
+                <value type="value">"MQTT Gateway Unit"</value>
+            </key>
+            <key name="sysLocation">
+                <value type="value">"Main IoT Facility"</value>
+            </key>
+            <key name="sysServices">
+                <value type="value">"72"</value>
+            </key>
+            <key name="empty">
+                <value type="value">""</value>
+            </key>
+        </key_value_mappings>
+    </databus>
+</core>

@@ -1,0 +1,14 @@
+<mqtt enabled="True" host="0.0.0.0" port="1883">
+    <device_info>
+        <vendor_name>Generic Vendor</vendor_name>
+        <product_code>MQTT Gateway</product_code>
+    </device_info>
+    <topics>
+        <topic name="sensor/temperature">
+            <value>round(random.uniform(20.0, 30.0), 2)</value>
+        </topic>
+        <topic name="sensor/humidity">
+            <value>round(random.uniform(30.0, 70.0), 2)</value>
+        </topic>
+    </topics>
+</mqtt>
